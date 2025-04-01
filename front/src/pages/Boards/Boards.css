@@ -1,0 +1,337 @@
+.sidebar {
+    position: fixed;
+    top: 47.5px;
+    left: -180px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: #333;
+    color: white;
+    transition: left 0.3s ease;
+    padding-top: 20px;
+    z-index: 10;
+}
+
+.sidebar.open {
+    left: 0px;
+}
+
+.board-button {
+    width: 130px;
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.board-button:hover {
+    background-color: #0056b3;
+}
+
+.board-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.board-list li {
+    margin-bottom: 5px;
+    color: #00b4d8;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 10px;
+    left: 185px;
+    background-color: #0079bf;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar-content {
+    margin-top: 50px;
+    margin-left : 20px;
+}
+
+.main-content {
+    margin-left: 70px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.shifted {
+    margin-left: 250px;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-list-button {
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fd0202;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.delete-list-button:hover {
+    color: darkred;
+}
+
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 75px;
+    background: #f4f5f7;
+    overflow-x: auto;
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 400% 400%;
+}
+
+.kanban-container {
+    display: flex;
+    gap: 16px;
+    padding: 10px;
+    width: fit-content;
+    min-width: 100%;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: #030e44;
+    }
+    50% {
+        background: #3d4985;
+    }
+    100% {
+        background: #030e44;
+    }
+}
+
+/*TICKET style*/
+
+.task-list {
+    flex-grow: 1;
+    min-height: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #f4f5f7;
+    border-radius: 6px;
+}
+
+.task-list:hover {
+    background-color: #e3e4e8;
+}
+
+.task {
+    background: #7c7cdc;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: all 0.3s ease;
+}
+
+.task:active {
+    transform: scale(1.05);
+    cursor: grabbing;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.task-list {
+    background-color: #ffffff;
+}
+
+.add-list-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 800px;
+    right: 20px;
+}
+
+.add-list-button {
+    background-color: #418d7e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-list-button:hover {
+    background-color: #005f8c;
+}
+
+.add-task-button {
+    background: #54abe8;
+}
+
+/*COLUMN style*/
+
+.column {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 400px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.column-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    background: #0079bf;
+    color: white;
+    border-radius: 6px;
+    cursor: grab;
+}
+
+/*POPUP style*/
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup-content {
+    width: 480px;
+    max-width: 100%;
+    padding: 20px 30px;
+    background-color: #b2b0b0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content.rectangle {
+    border-radius: 10px;
+}
+
+.popup-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.popup-body label {
+    font-weight: bold;
+}
+
+.popup-body .popup-input,
+.popup-body .popup-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.popup-body .popup-textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.popup-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+.save-button, .cancel-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    width: 45%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.due-date-display {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.save-button:hover, .cancel-button:hover {
+    opacity: 0.8;
+}
+
+.due-date-display {
+    color: #fd0202;
+}
+
+.hidden {
+    display: none;
+}
